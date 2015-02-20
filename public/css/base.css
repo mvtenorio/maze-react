@@ -1,10 +1,12 @@
 .empty-square {
 	height: 50px;
-	border: 1px solid black;
+	line-height: 50px;
+	text-align: center;
+	font-size: 50px;
+	color: red;
 }
 
 .full-square {
 	background: black;
 	height: 50px;
-	border: 1px solid black;
 }
