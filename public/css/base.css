@@ -1,14 +1,21 @@
+#board {
+  width: 600px;
+}
+
+.square {
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+
 .empty-square {
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	font-size: 50px;
-	color: red;
+  color: red;
+  font-size: 50px;
+  text-align: center;
 }
 
 .full-square {
 	background: black;
-	height: 50px;
 }
 
 .goal {
