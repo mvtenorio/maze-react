@@ -17,7 +17,7 @@ var MazeEmptySquare = React.createClass({
   },
   render: function() {
     return (
-      <div className="empty-square col-xs-1" onClick={this.handleClick}>{this.props.children.toString()}</div>
+      <div className={'empty-square col-xs-1 ' + this.props.className} onClick={this.handleClick}>{this.props.children.toString()}</div>
     );
   }
 });
@@ -33,11 +33,12 @@ var MazeFullSquare = React.createClass({
 var MazeBoard = React.createClass({
   handleEmptySquareClick: function(square) {
     console.log(square);
-    this.setState({selectedSquare: square.key});
+    this.setState({goalLocation: square.key});
   },
   getInitialState: function() {
     return {
-      selectedSquare: '11-3'
+      selectedSquare: '11-3',
+      goalLocation: null
     };
   },
   render: function() {
@@ -50,7 +51,9 @@ var MazeBoard = React.createClass({
           board.push(<MazeFullSquare key={key} />);
         } else {
           var content = this.state.selectedSquare == key ? '⚫' : '';
-          board.push(<MazeEmptySquare key={key} squareKey={key} onEmptySquareClick={this.handleEmptySquareClick}>{content}</MazeEmptySquare>);
+          var className = this.state.goalLocation == key ? 'goal' : '';
+
+          board.push(<MazeEmptySquare key={key} squareKey={key} onEmptySquareClick={this.handleEmptySquareClick} className={className}>{content}</MazeEmptySquare>);
         }
       }
     }
